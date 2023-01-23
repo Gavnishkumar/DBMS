@@ -1,0 +1,21 @@
+create table employee(
+ employee_name varchar2(25),
+ employee_id varchar2(25),
+ employee_salary number(10),
+ employee_mobile number(10),
+ employee_address varchar2(100),
+ employee_office_location varchar2(100));
+ desc employee;
+ drop table employee;
+  alter table employee add email varchar2(25);
+  alter table employee drop column email;
+  alter table employee add newaddress varchar2(100);
+  insert into employee values('gavnish kumar','mynamegavnish',200000 ,9368985917,'rajasthan','jaipur');
+select * from employee;
+delete from employee where employee_id='23nkhdsn';
+update employee set newaddress='sonepat' where employee_id='mynameashish';
+select employee_name,employee_address,employee_salary,newaddress from employee where employee_id='mynameashish';
+
+select count(*) from employee where employee_salary>300000;
+select employee_name from employee where employee_salary = (select max(employee_salary) from employee);
+delete from employee where employee_salary = (select max(employee_salary) from employee);
